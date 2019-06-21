@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+ASSIGNMENT RULES
+- The solution must be pushed to the repository and be available for the tutors by the end of the day
+- You can ask for tutor's help
+- You can google / use StackOverflow BUT we suggest you to use just the material provided
+- To test the page, just open it with your default browser.
+
+ASSIGNMENT TOPIC
+You are building a Barbers' Shop website. 
+The website is quite simple, it should include the basic information about the Shop (Name, address etc)
+and include a form to get reservation.
+
+Note: the form should just be implemented in HTML + CSS, no extra code needed.
+-->
+<html lang="en">
+    <head>
+    <!-- EXERCISE 1:
+    Specify the title, the charset (UTF-8) and the viewport of the page.
+    -->
+    <title>The Original Gentlemen's Club</title>
+    <meta charset="utf-8">
+    <meta name="viewport">
+   </head>
+  
+  <style>
+    /* EXERCISE 2:  
+       Style h1 color, alignment, size as you like it;
+       Style h2 color, alignment, size as you like it;
+       Style page background color as you like it
+       [EXTRA]
+       Set a red-ish color when the input of the forms are invalid
+       Set a ok-ish color when the input of the forms are valid
+    */
+    h1.center {
+       text-align: center; 
+       font-size: xx-large;
+       color:midnightblue
+    }
+    
+    h3 { 
+        font-size: x-large;  
+        color:midnightblue      
+    }
+
+    h2 {
+        font-size: x-large;  
+        color:midnightblue 
+    }
+    h4 {
+        font-size: x-large;  
+        color:midnightblue 
+    }
+    body {      
+            background-color:palegoldenrod         
+         }
+    footer {
+        text-align:center;
+        background:indigo;
+        color: white;
+      }
+     #footerList {
+      list-style-type: none;
+      }
+
+    </style>
+
+    <body>
+        <!-- EXERCISE 3:
+            Write the main title of the barber shop and a smaller claim.
+        -->
+        <h1 class="center"><strong>The Original Gentlemen's Club</strong></h1>
+
+        <!-- EXERCISE 4: 
+            Write a section in which you explain a current promotion
+        -->
+        <h2><strong>Discounts for Men</strong></h2>
+        <p>  We offer a <em><strong><span style="color:red">25% discount</span></em></strong> for STUDENTS every Wednesday all year! <br>
+            <br>
+           Every Thursday we give a <em><strong><span style="color:red">15% discount</span></em></strong> for men who want to make a statement.
+             <br>
+
+            </p>
+        <!-- EXERCISE 5: 
+            Write a section with the address of the shop.
+            [OPTIONAL] Link this address to Google Maps page.s
+        -->
+        <h4>About Us</h4>
+        
+        <p> Join us at the Original Gentlemen's club for the ultimate grooming experience. <br> <br>
+            
+            This shop is also a hangout place.<br> <br>
+            
+            Join the club on one condition:  <em><span style="color:midnightblue">What happens at the barber shop stays at the barber shop.</span></em>
+            </p> 
+               
+        <ul>
+           
+           
+             <li><strong>Address:</strong>: <br>
+                Triq Windsor, <br>
+                Sliema, Malta,</li><br>
+       
+                <li>Map:
+                        <a href="https://goo.gl/maps/b8Cg7zvruuW2hRi68">Check out Map</a></li>
+        </ul>
+
+        <!-- EXERCISE 6: 
+            Write a "Leave Email" form. 
+            The form must have a field for the Email and a button for the submission of the field itself.
+            The field must accept ONLY valid emails (empty email is not a valid email).
+
+            [OPTIONAL] On submit click, console log the value of the email
+        -->
+        <form id = "leaveEmail" name="leaveEmail">
+         <input type="email" name="Email:" id="Email" required>
+         <label for="Email">Email Address:</label> 
+         <input type="submit">
+        </form>
+
+        <br />
+
+        <!-- EXERCISE 7: 
+            Create an "book haircut" form.
+            The form must have:
+            - phone number
+            - date
+            - name
+          -->
+          <!--
+            Phone number and date are mandatory, the name is optional.
+            Create a form with a submit button, ready to be used in a real context.
+            Style it as you like it.
+            [OPTIONAL] On submit click, console log an object containing Phone Number, Date and Name.
+        -->
+          <h3><strong>Booking Form</strong></h3>
+        <form id = "bookHaircut" name = "bookHaircut">
+         <input type="text" name="Name:" id="Name">
+         <label for="Name">First and Last Name:</label> 
+         <br>
+         <input type="number" name="mobNum:" id="mobNum" required>
+         <label for="mobNum">Enter you mobile number:</label>
+         <br>
+         <input type="date" name="date:" id="date" required>
+         <label for="date">Enter preferred date of booking:</label> 
+         <br><br>
+         <input type="submit">
+        </form>
+
+
+
+        <script>
+            window.onload = function() {
+                console.log("Page loaded!");
+
+
+            }
+        </script>
+
+                <!-- EXERCISE 8: 
+            Place here a footer including:
+            - Name of the Barber Shop
+            - Address
+            - Phone Number
+            - Email (should be a clickable link)
+        -->
+        
+        <footer>
+                <ul id=footerList>
+           
+           
+                        <li><strong>WELCOME TO: The Original Gentlemen's Club</strong></li> <br>
+                        <li>Address: <br>
+                            Triq Windsor, <br>
+                            Sliema, Malta,</li>
+              
+                   
+                </ul>
+              </footer>
+             
+        <!-- EXERCISE 9:
+              Write on console the size (height and width) of the current browser window
+              Write on console the size (height and width) of the current page window
+         -->
+    </body>
+</html>
