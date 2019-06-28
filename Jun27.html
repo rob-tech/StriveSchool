@@ -1,0 +1,102 @@
+
+<!-- saved from url=(0049)file:///C:/Users/arkad/Downloads/Jun27%20(1).html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+        EXTRA: 
+        - Take ALWAYS a new number (avoid randoming 10 3 times for example)
+        - Create a USER BOARD with random 24 numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
+    
+            <title>Bingo!</title>
+
+            <style>
+
+            body{
+                max-width: 700px;
+                margin: 0 auto;
+                background: burlywood;
+                color: whitesmoke;
+                align-content: center
+            }
+            #bingoBoard {
+                width: 100%;
+                margin-bottom: 40px;
+                background: black;
+                border: 1px solid white;
+            }
+            #bingoBoard .bingoNumber{
+                width:60%; 
+                width: 60px;
+                display: inline-block;
+                text-align: center;
+                min-height: 30px;
+                line-height: 30px;
+            }
+        
+            .eventHighlight {
+                font-weight: bolder;
+                text-decoration: underline;
+                color:#ef3d59;
+            }
+
+            #pressButton {
+                background-color:blueviolet; 
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+
+
+
+            </style>
+    
+</head>
+<body>
+
+        <h1>Bingo Board</h1>
+        <div id="bingoBoard"></div>
+  
+             <div>
+                <input id = pressButton type="button" onclick="generateNumber()" value = "Generate Number"/>
+            </div>
+
+        <script>
+            var numberOnBoard = 76;
+
+            window.onload=function(){
+            var bingoBoard = document.getElementById("bingoBoard"); 
+            for (var i = 0; i < numberOnBoard; i++) {
+            var child = document.createElement("div");//we created a container for all the numbers (child of bingoBoard)
+                child.className = "bingoNumber"; //assigned class to the container (bingoNumber)
+            var displayNumber = document.createElement("h2"); //we created an element called h2 (displayNumber) inside the container
+                displayNumber.innerText = i+1; //we are asking it what to assign and display to each indexed item in the container
+                child.appendChild(displayNumber); //we are appending the displaynumber to the class
+                bingoBoard.appendChild(child); //we are appending the class to the parent
+            }
+             }
+
+        function generateNumber() {
+            var randomNumber = Math.floor(Math.round(Math.random()*76))
+            var numberHighlight = document.getElementById("bingoBoard")//get reference
+            var bingoBoardCell = numberHighlight.children[randomNumber-1]
+            var bingoNumbers = document.getElementsByClassName("bingoNumber");
+            for (var i = 0; i < bingoNumbers.length; i++){
+                bingoNumbers[i].classList.remove("eventHighlight");
+            }
+            bingoBoardCell.classList.add("eventHighlight");          
+        }
+        </script>
+
+    
+</body>
+
+</html>

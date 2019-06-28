@@ -1,0 +1,88 @@
+<html>
+    <head>
+            <script src="June24.js" defer>
+        /* EXERCISE 1
+            Write a function to change the Title of the page in something else
+            */
+           document.querySelector("h1").innerHTML = "Hello"
+           
+
+             /* EXERCISE 2
+            Write a function to change the class of the title of the page in "myHeading"
+            */
+
+            /* EXERCISE 3
+            Write a function to change the text of only the p which are child of a div
+            */
+            var text = document.createText("Water");
+            var item = document.getElementByTag("div").childNodes[0];
+            item.replaceChild(text, item.childNodes[0]);
+
+       
+            /* EXERCISE 4
+            Write a function to change the destination of every link to https://www.google.com
+            */
+
+             /* EXERCISE 5
+            Write a function to add a new item ONLY to the second list
+            */
+
+              /* EXERCISE 6
+           Write a function to add a second paragraph to the div
+            */
+
+            /* EXERCISE 7
+           Write a function to make the first UL disappear
+            */
+
+            /* EXERCISE 8
+          Write a function to make the background of every UL green
+            */
+
+            /* EXERCISE 9
+          Make the heading of the page changing color every time the user clicks on it
+            */
+
+            /* EXERCISE 10
+          Create a new welcome alert message when the page successfully loads
+            */
+            window.onload = function () {
+            alert('welcome!');
+        }; 
+        
+        </script>
+
+        <style>
+            .myHeading {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>This is the title of the page</h1>
+        <h2>This is the subtitle of the page</h2>
+
+        <hr>
+
+        <ul id="firstList">
+            <li>1st</li>
+            <li>2nd</li>
+            <li>3rd</li>
+        </ul>
+
+        <ul id="secondList">
+            <li>1st</li>
+            <li>2nd</li>
+            <li>3rd</li>
+        </ul>
+
+        <a href="strive.school">This link goes to Strive School</a>
+
+        <div>
+            <p>This text is just for the exercise</p>
+        </div>
+
+        <p>And this text is just for the exercise too!</p>
+    </body>
+    
+</html>

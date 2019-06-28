@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Task List</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>My Task List</h1>
+       
+            <input type = "text" id="addTask" placeholder="New Task...">
+            <input type = "button" onclick="addNewTask()" class="addButton" value="Add Task">
+   
+         
+          
+          <ul id="myUL">
+            <div><li>Hit the gym</li><input type = "button" value="X"></div>
+            <div><li>Send emails</li><input type = "button"  value="X"></div>
+            <div><li>Meeting</li><input type = "button" value="X"></div>
+            <div><li>Grocery Shopping</li><input type = "button" value="X"></div>
+            <div><li>Read a book</li><input type = "button" value="X"></div>
+            <div><li>Organize desk</li><input type = "button" value="X"></div>
+          </ul>
+
+        <script>
+
+
+        function addNewTask() {
+            var list = document.createElement("li");//getting list
+            var textInput = document.getElementById("addTask").value;//holding input in memory
+            var newTask = document.createTextNode(textInput);
+            
+            list.appendChild(newTask)//we are adding the new task to the current list            
+           
+                if (textInput === '') {
+                    alert("No Task Added!");
+              } else {
+                    var button = document.createElement("button");
+                    button.innerHTML = "X";
+                    list.appendChild(button);
+                    document.getElementById("myUL").appendChild(list);//now we are adding back the list to myUL        
+              }
+        }
+
+        function removeTask(event){
+
+            //event.target
+            var parent = document.getElementsByTagName("div");
+
+            //get the DIV
+            //remote the DIV from the parentNode 
+            //(grampa of the button)
+            //<ul>  <= parent of the parent
+                //<div>  <= parent
+                    //<li> <buttom> <= child
+            
+            parent = event.target.parentNode;
+            var list = parent.parentNode;
+            parent.parentNode.removeChild(parent);
+            //johm.parentNode.removeChild(johm)
+        }
+        
+
+        window.onload = function(){
+            var cancelTask = document.getElementById("myUL").querySelectorAll("input");
+            for(var i = 0; i< cancelTask.length; i++){ //cycle through the numeric buttons
+                cancelTask[i].addEventListener("click", removeTask, addNewTask); //add event handler for click event
+            }
+        }
+
+
+
+        </script>
+ 
+    </body>
+</html>
