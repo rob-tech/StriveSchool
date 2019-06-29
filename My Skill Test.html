@@ -72,7 +72,7 @@
                   <HR WIDTH="100%" color="black" SIZE="4">
 
         <h2>My Table</h2>
-            <table class = "tableParent">
+            <table id = "myTable">
             <tr>
                <th>Column 1</th>
                <th>Column 2</th>
@@ -221,16 +221,73 @@
      document.getElementById("container");
      document.querySelectorAll("td");
 
-     function insertText(){
-         var tableParent = document.getElementsByClassName("tableParent");
-         var child = document.getElementByTag("td")
-            for (var i = 0; i < child.length; i++){
-                var child[i] = document.createElement("td")
-                child[i].innerText = "Hello"
-                tableParent.appendChild(child)
+        function insertText(){
+             var child = document.getElementsByTagName("td")
+             for (var i = 0; i < child.length; i++){
+             child[i].innerText = "Hello"
             }
         }
 
-    </script>    
+     
+        function changeHeading(){
+             var child = document.getElementsByTagName("h1")
+             for (var i = 0; i < child.length; i++){
+             child[i].innerText = "Title has been changed"
+            }
+        }
+
+        //36) Write a function to add the class "test" to reach row in the table
+        function addRow(){
+            var table = document.getElementById('myTable')
+            var rows = document.getElementsByTagName('tr')[0];
+            for (var i = 0; i < rows.length; i++) {
+                rows.className = "test";
+            }
+            // Insert a row in the table at the last row
+            var newRow  = table.insertRow(rows.length)
+            // Insert a cell in the row at index 0
+            var cell1  = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+            }
+
+            function changeBackground() {
+                   var table = document.getElementById("mytable")
+                   var rows = document.getElementsByTagName("td");
+                   rows[1].style.backgroundColor = "red"; 
+                   rows[5].style.backgroundColor = "red"; 
+                   rows[10].style.backgroundColor = "red"; 
+                   rows[15].style.backgroundColor = "red"; 
+              
+                 }
+
+           window.onload = function () {
+                   alert('welcome!');
+                }; 
+
+            function addNewListItem() {
+                 var unorderedList = document.getElementById("container");//getting list
+                 var list = document.createElement('li')
+                 var newItem = document.createTextNode("Module 6");
+                 list.appendChild(newItem)
+                 unorderedList.appendChild(list)
+                    }
+
+
+            //40) Write a function to empty a list
+
+            function clearList(){
+             var parent = document.getElementsByTagName("ol"); 
+             //var list = document.getElementsByTagName('li')
+            // var list = parent.parentNode
+             this.parent.remove
+          
+            }
+        
+
+       </script>    
+
             </body>
         </html>
