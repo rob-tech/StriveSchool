@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+<style>
+            .listMember{
+                flex-grow: 1;
+                background-color: #3d40ef;
+                color: white;
+                padding: 10px;
+                margin: 10px;
+                display: flex;
+                border-radius: 5px;
+            }
+            .listMember span{
+                flex-grow: 1;
+                line-height: 50px;
+                text-align:center;
+            }
+            .listMember button{
+                height: 50px;
+                width: 50px;
+                background-color: white;
+                color: #3d40ef ;
+                border: 1px solid  #3d40ef ;
+            }
+</style>
+<body>
+  <h1>Hello, world!</h1>
+
+  <div id="container">
+    <h1>Team Members</h1>
+    <div id="addTeamMember">
+      <input type="text" placeholder="Member" id="member" />
+      <input type="button" value="Add" id="addButton" onclick="addTeamMember()" />
+    </div>
+    
+    <div id="list">  </div>
+    </div>
+  
+    <div id="assignTeam">
+          <input type="value" placeholder="No. of Teams" id="noOfTeams" />
+          <input type="button" value="Add" id="noButton" onclick="assignTeam()" />
+    </div>
+
+
+
+
+  <script>
+    window.onload = function () {
+      console.log("Page has loaded");
+    }
+
+    function addTeamMember() {
+
+      var myDiv = document.createElement("div"); 
+      myDiv.classList.add("listMember"); 
+      var text = document.createElement("span");
+      text.innerText = document.getElementById("member").value;
+      myDiv.appendChild(text);
+
+      var deleteButton = document.createElement("button");
+      deleteButton.innerText = "Delete Member";
+      deleteButton.addEventListener("click", deleteMember)
+      myDiv.appendChild(deleteButton);
+
+      var moveUpButton = document.createElement("button");
+      moveUpButton.innerText = "+";
+      moveUpButton.addEventListener("click", moveUp);
+      myDiv.appendChild(moveUpButton);
+      
+      var moveDownButton = document.createElement("button");
+      moveDownButton.innerHTML = "-";
+      moveDownButton.addEventListener("click", moveDown);
+      myDiv.appendChild(moveDownButton);
+      
+      var list = document.getElementById("list");
+      list.appendChild(myDiv);
+
+    }
+    function deleteMember(event) {
+      var button = event.target;
+      var listMember = event.target.parentElement;
+      event.target.parentElement.remove(event.target.parentElement);
+    }
+
+    function moveUp(event) {
+      var div = event.target.parentElement; //DIV 
+      var list = document.getElementById("list"); //LIST 
+      list.insertBefore(div, div.previousSibling); //HEY LIST! Move this Line BEFORE the previous element
+    }
+    function moveDown(event) {
+      var div = event.target.parentElement;
+      var list = document.getElementById("list");
+      list.insertBefore(div.nextSibling, div);
+    }
+
+    
+    //so the funciton needs to divide the list length (6) - membersPerTeam
+    //with the number of teams inputted (2) 
+    //and get a result of (3) and assign 3 members into a new list
+    function assignTeam(noOfTeams){
+      var list = document.getElementById("list");
+     var count = list.childElementCount;
+         if (list.childElementCount > 0) {
+            var memberPerTeam = count/noOfTeams;  //rob/hello/kil/jo/mark/rob/hello/kil - list
+            //members per team (4) = 8 members/2 teams//
+          }
+          return memberPerTeam
+        }
+      //for (var i = 0; i < noOfTeams; i++) {
+        //var array = 
+        //  var indexToSplit = arr.indexOf('noOfTeams');
+      //  var first = arr.slice(0, indexToSplit);
+      //  var second = arr.slice(indexToSplit + 1);
+    //  }
+
+           function assignArrays(memberPerTeam, count){
+           var teams =[]
+         for (var i = 0; i < count; i ++){
+            var toAdd = [];
+            for(var j = 0; j < memberPerTeam; j++){
+            toAdd.push(memberPerTeam[i])
+          }
+         teams.push(toAdd);
+        }
+        return teams 
+      }
+
+  </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
